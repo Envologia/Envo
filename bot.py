@@ -327,3 +327,20 @@ def setup_application():
         states={
             NAME: [MessageHandler(filters.TEXT, get_name)],
             AGE: [MessageHandler(filters.TEXT, get_age)],
+            GENDER: [MessageHandler(filters.TEXT, get_gender)],
+            UNIVERSITY: [MessageHandler(filters.TEXT, get_university)],
+            BIO: [MessageHandler(filters.TEXT, get_bio)]
+        },
+        fallbacks=[CommandHandler('cancel', lambda u,c: ConversationHandler.END)]
+    )
+    
+    application.add_handler(conv_handler)
+    application.add_handler(CommandHandler('browse', browse_profiles))
+    application.add_handler(CallbackQueryHandler(handle_interaction))
+    
+    return application
+
+async def post_init(application):
+    await init_db()
+
+application = setup_application()
