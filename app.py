@@ -2,9 +2,14 @@ import os
 import asyncio
 from flask import Flask, request, jsonify
 from telegram import Update
-from bot import application  # This connects to your bot.py
+from bot import application, initialize_bot  # Modified import
 
 app = Flask(__name__)
+
+# Initialize bot before first request
+@app.before_first_request
+async def initialize():
+    await initialize_bot()
 
 async def process_update(update):
     try:
