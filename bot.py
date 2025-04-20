@@ -344,3 +344,8 @@ async def post_init(application):
     await init_db()
 
 application = setup_application()
+async def initialize_bot():
+    """Initialize the bot application"""
+    await application.initialize()
+    await application.start()
+    await application.updater.start_polling()
