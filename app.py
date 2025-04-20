@@ -1,19 +1,22 @@
-from flask import Flask, request
-import os
+from flask import Flask, request, jsonify
+import asyncio
 from telegram import Update
 from bot import application
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return "Ethiopian Uni Dating Bot is running! 🚀"
+async def process_update(update):
+    await application.process_update(update)
 
 @app.route(f'/{os.getenv("BOT_TOKEN")}', methods=['POST'])
-def telegram_webhook():
+def webhook():
     update = Update.de_json(request.get_json(), application.bot)
-    application.process_update(update)
-    return "OK", 200
+    asyncio.run(process_update(update))
+    return jsonify({"status": "success"})
+
+@app.route('/')
+def home():
+    return "Bot is running! Use /start in Telegram"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.getenv('PORT', 10000)))
