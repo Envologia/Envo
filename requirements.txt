@@ -1,0 +1,4 @@
+# Envo Userbot Dependencies
+telethon
+redis
+python-dotenv
