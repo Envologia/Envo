@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  envo:
+    build: .
+    environment:
+      - API_KEY=${API_KEY}
+      - API_HASH=${API_HASH}
+      - BOT_TOKEN=${BOT_TOKEN}
+      - SESSION=${SESSION}
+      - REDIS_URI=${REDIS_URI}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+    volumes:
+      - .:/app
+  redis:
+    image: "redis:alpine"
