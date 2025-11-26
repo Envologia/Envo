@@ -1,0 +1,8 @@
+# Envo Userbot Dependencies
+telethon
+python-dotenv
+httpx
+wikipedia
+imdbpy
+Pillow
+pyfiglet
