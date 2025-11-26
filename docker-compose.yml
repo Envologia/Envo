@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  envo:
+    build: .
+    environment:
+      - PYTHONPATH=.
+      - API_KEY=${API_KEY}
+      - API_HASH=${API_HASH}
+      - BOT_TOKEN=${BOT_TOKEN}
+      - SESSION=${SESSION}
+    volumes:
+      - .:/app

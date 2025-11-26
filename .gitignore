@@ -1,0 +1,15 @@
+# Envo Userbot
+# Created by @envologia
+
+# ——— General ———
+*.env
+*.session
+envo.db
+assistant.session
+*.pyc
+__pycache__/
+venv/
+.idea/
+
+# ——— Docker ———
+docker-compose.override.yml
