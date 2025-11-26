@@ -1,0 +1,36 @@
+{
+  "name": "Envo",
+  "description": "A Telegram userbot.",
+  "logo": "https://raw.githubusercontent.com/TeamUltroid/Ultroid/main/resources/extras/logo_readme.jpg",
+  "keywords": ["telegram", "userbot"],
+  "env": {
+    "API_KEY": {
+      "description": "Your API key from my.telegram.org",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Your API hash from my.telegram.org",
+      "value": ""
+    },
+    "BOT_TOKEN": {
+      "description": "Your bot token from @BotFather",
+      "value": ""
+    },
+    "SESSION": {
+      "description": "Your Telethon session string",
+      "value": ""
+    },
+    "REDIS_URI": {
+      "description": "Your Redis URI",
+      "value": ""
+    },
+    "REDIS_PASSWORD": {
+      "description": "Your Redis password",
+      "value": ""
+    },
+    "OPENROUTER_API_KEY": {
+      "description": "Your OpenRouter API key",
+      "value": ""
+    }
+  }
+}
